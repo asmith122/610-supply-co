@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>610 Supply Co. — Store Concept Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f2f5f2; --surface:#ffffff; --surface2:#eef3ee;
+  --ink:#13211b; --muted:#5a6b62; --line:#dde6de;
+  --green:#0b3d2e; --green2:#0f5a43; --gold:#e9a426; --gold-ink:#1a1405;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(11,61,46,.10);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1713; --bg2:#121f19; --surface:#16241e; --surface2:#1c2f27;
+    --ink:#eaf2ed; --muted:#a7b8ae; --line:#2a3d34;
+    --green:#7fd1ae; --green2:#a8e3c6; --gold:#e9a426;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Barlow",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.mockbar{background:#111827;color:#fff;text-align:center;padding:9px 16px;font-size:13.5px;letter-spacing:.02em}
+.mockbar strong{background:var(--gold);color:#111;padding:2px 8px;border-radius:999px;font-size:11px;letter-spacing:.08em;margin-right:8px;vertical-align:1px}
+header.site{position:sticky;top:0;z-index:30;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo .mark{width:46px;height:46px;flex:0 0 46px;border-radius:12px;background:var(--green);color:#fff;display:grid;place-items:center;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:19px;letter-spacing:.02em;line-height:1}
+@media (prefers-color-scheme: dark){ .mark{background:#e9a426;color:#13211b} }
+.logo b{font-family:"Barlow Condensed",sans-serif;font-size:24px;letter-spacing:.04em;line-height:1;display:block}
+.logo .logo-sub{font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;display:block}
+.nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-weight:600;font-size:14.5px;padding:8px 12px;border-radius:999px;white-space:nowrap}
+.navlinks a:hover{background:var(--surface2)}
+.cart-btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;border:none;border-radius:999px;padding:10px 16px;font-weight:700;font-size:14.5px}
+@media (prefers-color-scheme: dark){.cart-btn{background:#e9a426;color:#13211b}}
+.cart-count{background:#fff;color:#0b3d2e;min-width:22px;height:22px;border-radius:999px;display:grid;place-items:center;font-size:12.5px;font-weight:800;padding:0 6px}
+@media (prefers-color-scheme: dark){.cart-count{background:#13211b;color:#fff}}
+@media(max-width:640px){
+  .nav{flex-direction:column;align-items:flex-start;gap:10px}
+  .logo b{font-size:21px}
+  .nav-right{width:100%;justify-content:space-between}
+  .navlinks{flex:1}
+  .navlinks a{padding:7px 10px;font-size:13.5px;background:var(--surface2)}
+}
+.hero{padding-top:42px;padding-bottom:10px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:stretch}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green2)}
+h1{font-family:"Barlow Condensed",sans-serif;font-size:clamp(44px,6vw,72px);line-height:.92;letter-spacing:.01em;margin:10px 0 14px;text-transform:uppercase}
+h1 em{font-style:normal;color:var(--green2);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:6px;text-underline-offset:6px}
+.lede{font-size:18.5px;color:var(--muted);max-width:54ch;margin:0 0 22px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;border-radius:999px;padding:13px 20px;font-weight:700;font-size:15.5px;border:1.5px solid transparent;transition:transform .12s ease, background .12s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--green);color:#fff}
+@media (prefers-color-scheme: dark){.btn-primary{background:#e9a426;color:#13211b}}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-gold{background:var(--gold);color:var(--gold-ink);border-color:var(--gold)}
+.btn-cart{background:var(--green);color:#fff;border-color:var(--green)}
+@media (prefers-color-scheme: dark){.btn-cart{background:#e9a426;color:#13211b;border-color:#e9a426}}
+.flowcard{background:var(--green);color:#eaf6f0;border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+@media (prefers-color-scheme: dark){.flowcard{background:#1c2f27;color:var(--ink);border:1px solid var(--line)}}
+.flowcard h2{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:26px;margin:0 0 6px;line-height:1}
+.flowcard p{margin:0 0 18px;opacity:.85;font-size:15px}
+.steps{display:grid;gap:12px}
+.step{display:flex;gap:13px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:13px 14px}
+@media (prefers-color-scheme: dark){.step{background:rgba(255,255,255,.04)}}
+.step .num{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#13211b;font-weight:800;display:grid;place-items:center;font-size:15px;text-align:center}
+.step b{display:block;font-size:15.5px;line-height:1.25}
+.step>div>span{font-size:13.8px;opacity:.85;display:block;line-height:1.4}
+.pill{display:inline-block;margin-top:16px;background:#fff;color:#0b3d2e;font-weight:700;font-size:13px;padding:7px 11px;border-radius:999px}
+@media (prefers-color-scheme: dark){.pill{background:#e9a426;color:#13211b}}
+section{padding:36px 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:18px}
+h2.title{font-family:"Barlow Condensed",sans-serif;font-size:36px;line-height:1;text-transform:uppercase;letter-spacing:.02em;margin:0}
+.sec-head p{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 15px;border-radius:999px;font-weight:700;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.visual{aspect-ratio:4/3;display:grid;place-items:center;position:relative;overflow:hidden}
+.visual svg{width:78%;height:82%}
+.badge{position:absolute;top:12px;left:12px;background:#fff;color:#13211b;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.card-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+.cat{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green2)}
+.card h3{margin:0;font-size:19px;line-height:1.2}
+.desc{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.price-row{display:flex;align-items:baseline;gap:9px;margin-top:4px}
+.price{font-family:"Barlow Condensed",sans-serif;font-size:27px;font-weight:700}
+.was{color:var(--muted);text-decoration:line-through;font-size:14px}
+.ship{font-size:12.8px;color:var(--muted)}
+.card-actions{display:grid;grid-template-columns:1fr 1.25fr;gap:9px;margin-top:10px}
+.btn-sm{padding:11px 12px;font-size:14.5px;justify-content:center}
+.fulfill-note{margin-top:10px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12.3px;color:var(--muted);line-height:1.4}
+.fulfill-note b{color:var(--ink)}
+.anatomy{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.anatomy{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.panel h3{margin:0 0 8px;font-size:19px}
+.panel p, .panel li{color:var(--muted);font-size:15px}
+.panel ul{margin:8px 0 0;padding-left:19px}
+.panel li{margin:5px 0}
+.demo-btn-wrap{border:1.5px dashed var(--line);border-radius:14px;padding:18px;text-align:center;background:var(--bg2)}
+.arrow-note{font-size:13.5px;color:var(--muted);margin-top:10px}
+.flow-diagram{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;text-align:center}
+.flow-diagram .box{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:9px 10px;font-weight:700;font-size:13px;line-height:1.25}
+.flow-diagram .arrow{color:var(--muted);font-weight:800}
+table.roles{width:100%;border-collapse:collapse;font-size:14.5px}
+table.roles th, table.roles td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.roles th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.notebox{background:#fff7e0;border:1px solid #f0d488;color:#4a3603;border-radius:14px;padding:16px 18px;font-size:15px}
+@media (prefers-color-scheme: dark){.notebox{background:#2b2410;border-color:#5a4a1c;color:#f3e3ac}}
+.notebox b{color:inherit}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:820px){.faq{grid-template-columns:1fr}}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.faq summary{font-weight:700;cursor:pointer;font-size:16px}
+.faq p{color:var(--muted);margin:9px 0 0;font-size:15px}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:14px}
+footer .cols{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.overlay{position:fixed;inset:0;background:rgba(8,18,14,.62);display:none;place-items:end center;z-index:60;padding:0}
+.overlay.open{display:grid}
+@media(min-width:700px){.overlay{place-items:center;padding:20px}}
+.sheet{background:var(--bg);width:100%;max-width:680px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:0;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+@media(min-width:700px){.sheet{border-radius:22px}}
+.sheet-head{position:sticky;top:0;background:var(--bg);display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);z-index:2;gap:12px}
+.sheet-head b{font-family:"Barlow Condensed",sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:.03em}
+.demo-tag{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:4px 8px;border-radius:999px;white-space:nowrap}
+.x{border:1px solid var(--line);background:var(--surface);width:38px;height:38px;border-radius:50%;font-size:18px;line-height:1;flex:0 0 38px}
+.sheet-body{padding:20px}
+.detail-visual{border-radius:16px;aspect-ratio:16/9;display:grid;place-items:center;margin-bottom:16px}
+.detail-visual svg{width:62%;height:88%}
+.opt-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+.opt-row{display:flex;gap:8px;flex-wrap:wrap}
+.opt{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:9px 14px;font-weight:700;font-size:14px}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.swatch{width:38px;height:38px;border-radius:50%;border:2.5px solid transparent;padding:2px;background:transparent}
+.swatch i{display:block;width:100%;height:100%;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.swatch[aria-pressed="true"]{border-color:var(--ink)}
+.buybox{margin-top:20px;background:var(--surface2);border-radius:16px;padding:16px}
+.buybox .price{font-size:34px}
+.buybox .btn{width:100%;justify-content:center;margin-top:10px;padding:15px}
+.micro{font-size:13px;color:var(--muted);text-align:center;margin-top:9px;line-height:1.45}
+.field{margin-top:13px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.field input{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:11px;background:var(--surface);color:var(--ink);font:inherit;font-size:15px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.row2{grid-template-columns:1fr}}
+.totals{margin-top:16px;font-size:14.5px}
+.totals div{display:flex;justify-content:space-between;padding:5px 0;color:var(--muted);gap:12px}
+.totals div.grand{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;color:var(--ink);font-weight:800;font-size:16.5px}
+.sum-list{display:grid;gap:10px;margin-bottom:6px}
+.sum{display:flex;gap:14px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:13px}
+.sum-thumb{width:58px;height:58px;border-radius:10px;flex:0 0 58px;display:grid;place-items:center;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:11px;letter-spacing:.02em;text-align:center;line-height:1.05;padding:4px;overflow:hidden}
+.success{display:none;text-align:center;padding:10px 4px 4px}
+.success.show{display:block}
+.check{width:64px;height:64px;border-radius:50%;background:#dcf5e6;color:#0b6b3a;display:grid;place-items:center;font-size:30px;margin:4px auto 12px;font-weight:800}
+.timeline{text-align:left;margin:18px auto 0;max-width:440px;display:grid;gap:10px}
+.timeline div{display:flex;gap:11px;font-size:14.5px;color:var(--muted)}
+.timeline b{color:var(--ink)}
+/* cart drawer */
+.cart-backdrop{position:fixed;inset:0;background:rgba(8,18,14,.55);opacity:0;pointer-events:none;transition:.22s;z-index:70}
+.cart-backdrop.open{opacity:1;pointer-events:auto}
+.cart-drawer{position:fixed;top:0;right:0;height:100dvh;width:min(430px,100vw);background:var(--bg);z-index:71;transform:translateX(105%);transition:transform .26s ease,visibility 0s linear .28s;display:flex;flex-direction:column;box-shadow:-18px 0 50px rgba(0,0,0,.25);visibility:hidden;pointer-events:none}
+.cart-drawer.open{transform:translateX(0);visibility:visible;pointer-events:auto;transition:transform .26s ease}
+.cart-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.cart-head b{font-family:"Barlow Condensed",sans-serif;font-size:24px;text-transform:uppercase;letter-spacing:.03em}
+.cart-items{flex:1;overflow:auto;padding:16px 20px;display:grid;gap:12px;align-content:start}
+.cart-empty{text-align:center;color:var(--muted);padding:28px 10px}
+.cart-empty b{color:var(--ink);display:block;font-size:17px;margin-bottom:6px}
+.cart-item{display:grid;grid-template-columns:58px 1fr auto;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;align-items:start}
+.cart-item .thumb{width:58px;height:58px;border-radius:10px;display:grid;place-items:center;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:11px;text-align:center;line-height:1.05;padding:4px;overflow:hidden}
+.cart-item b{font-size:14.5px;line-height:1.25;display:block}
+.cart-item .variant{font-size:13px;color:var(--muted)}
+.cart-item .line-price{font-weight:800;font-size:14.5px;white-space:nowrap}
+.qty-row{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.qty-btn{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);font-weight:800;line-height:1}
+.qty-num{font-weight:700;min-width:16px;text-align:center}
+.remove-btn{background:none;border:none;color:var(--muted);font-size:13px;text-decoration:underline;padding:0}
+.cart-foot{border-top:1px solid var(--line);padding:16px 20px 20px;background:var(--bg)}
+.cart-foot .totals{margin-top:0}
+.cart-foot .btn{width:100%;justify-content:center;padding:15px;margin-top:12px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#111827;color:#fff;padding:12px 17px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:90;box-shadow:0 12px 30px rgba(0,0,0,.25);max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.hidden{display:none !important}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="mockbar"><strong>CONCEPT PREVIEW</strong> 610 Supply Co. store concept, prepared for partner review. Sample products &amp; prices — no real orders, no real payments.</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="610 Supply Co. home">
+      <span class="mark">610</span>
+      <span><b>610 SUPPLY CO.</b><span class="logo-sub">Delaware County, PA</span></span>
+    </a>
+    <div class="nav-right">
+      <nav class="navlinks" aria-label="Store">
+        <a href="#shop">Shop</a>
+        <a href="#how">How buying works</a>
+        <a href="#anatomy">Why on-site</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="cart-btn" type="button" id="cartOpenBtn" aria-label="Open cart">Cart <span class="cart-count" id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Delco slang • Tees, mugs, stickers &amp; more</div>
+        <h1>Wear the <em>610.</em><br>Say it like a local.</h1>
+        <p class="lede">One website does the showing and the selling. Customers browse here, pick a size and color, add to cart, and pay, all without leaving the site. Printify prints and ships each order behind the scenes.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#shop">Shop the collection ↓</a>
+          <button class="btn btn-ghost" id="heroCartBtn" type="button">View your cart</button>
+        </div>
+        <p style="color:var(--muted);font-size:14px;margin-top:14px">Try the full flow: tap <b style="color:var(--ink)">View details</b> to pick a size and color, or <b style="color:var(--ink)">Add to cart</b> straight from a card. Then open the cart and check out, all on this page. Working demo, no real payment.</p>
+      </div>
+
+      <aside class="flowcard" id="how" aria-label="How buying works">
+        <h2>How buying works</h2>
+        <p>The site does the showing and the selling. Printify does the making and shipping, invisibly behind the scenes.</p>
+        <div class="steps">
+          <div class="step"><span class="num">1</span><div><b>Customer browses here</b><span>On 610 Supply Co.'s own website. They pick a product, size, and color right here.</span></div></div>
+          <div class="step"><span class="num">2</span><div><b>They add to cart &amp; check out here</b><span>The cart drawer and the checkout form live on this site. No jump to another site to pay.</span></div></div>
+          <div class="step"><span class="num">3</span><div><b>Order flows to Printify automatically</b><span>Once paid, the order, design, size, color, and shipping address go straight to Printify.</span></div></div>
+          <div class="step"><span class="num">4</span><div><b>Printed, shipped, you keep the margin</b><span>Printify prints it and ships it to the customer. You are charged the base cost; the difference between that and your price is your margin.</span></div></div>
+        </div>
+        <span class="pill">The customer never leaves your site. Printify is invisible to them.</span>
+      </aside>
+    </div>
+  </div>
+
+  <section id="shop">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="title">The Collection</h2>
+          <p>Six sample products that show the pattern. Every card works the same way: View details for size and color, Add to cart, then check out, all without leaving this site.</p>
+        </div>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter products">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All products</button>
+        <button class="chip" type="button" data-filter="tees" aria-pressed="false">Tees &amp; hoodies</button>
+        <button class="chip" type="button" data-filter="drinkware" aria-pressed="false">Mugs</button>
+        <button class="chip" type="button" data-filter="stickers" aria-pressed="false">Stickers</button>
+        <button class="chip" type="button" data-filter="home" aria-pressed="false">For the house</button>
+      </div>
+
+      <div class="grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <section id="anatomy" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="title">Why checkout stays on-site</h2>
+          <p>Physical merch can't be delivered by a download link, so this store keeps browsing, cart, and checkout in one place, with printing and shipping handled behind the scenes.</p>
+        </div>
+      </div>
+      <div class="anatomy">
+        <div class="panel">
+          <h3>Digital downloads can link out</h3>
+          <p>A store selling digital files, like a PDF download, can send buyers to an outside checkout such as Payhip: the file is delivered instantly the moment someone pays, so nothing needs to be printed or shipped.</p>
+          <div class="demo-btn-wrap">
+            <div class="flow-diagram" aria-label="Digital download store flow">
+              <span class="box">Download-store<br>website</span><span class="arrow">→</span>
+              <span class="box">Payhip<br>checkout</span><span class="arrow">→</span>
+              <span class="box">PDF download<br>delivered instantly</span>
+            </div>
+            <div class="arrow-note">The customer leaves the site to pay, then gets a file. Nothing needs to be printed or shipped.</div>
+          </div>
+          <ul>
+            <li><b>Product type:</b> digital file, no printing, no postage.</li>
+            <li><b>Who fulfills it:</b> Payhip can, all by itself, with a download.</li>
+            <li><b>So an outside link works</b> for that kind of store.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>610 Supply Co.: checkout on-site</h3>
+          <p>A T-shirt can't be downloaded, and Payhip can't print, box, or ship one. So this store doesn't use Payhip at all, and there is no external buy link behind any button here.</p>
+          <div class="demo-btn-wrap">
+            <button class="btn btn-cart" type="button" data-demo-add="wooder-tee">Add the Wooder Tee to cart</button>
+            <div class="arrow-note">↑ Try it — it stays on this site and opens your cart drawer</div>
+          </div>
+          <ul>
+            <li><b>The button is “Add to cart,”</b> not a link to another site.</li>
+            <li><b>The site itself is the cash register:</b> cart and checkout are built into this site.</li>
+            <li><b>Printify works invisibly behind the scenes:</b> after checkout, the order flows to Printify automatically. The customer never sees Printify's name.</li>
+          </ul>
+          <div class="flow-diagram" style="margin-top:14px" aria-label="610 Supply Co flow">
+            <span class="box">Browse<br>here</span><span class="arrow">→</span>
+            <span class="box">Cart &amp; checkout<br>here</span><span class="arrow">→</span>
+            <span class="box">Printify prints<br>&amp; ships</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:18px">
+        <h3>Who does what</h3>
+        <div style="overflow-x:auto">
+        <table class="roles">
+          <thead><tr><th>Part</th><th>Who handles it</th><th>What the customer experiences</th></tr></thead>
+          <tbody>
+            <tr><td><b>Browsing, cart &amp; checkout</b></td><td>You (610 Supply Co., on this website)</td><td>Photos, sizes, colors, prices, cart, checkout form, confirmation — all in one place</td></tr>
+            <tr><td><b>Payment</b></td><td>Taken at checkout on this site</td><td>They pay here and get a confirmation here. No redirect, no second site</td></tr>
+            <tr><td><b>Printing &amp; shipping</b></td><td>Printify, behind the scenes</td><td>Package arrives by mail with tracking. They never interact with Printify directly</td></tr>
+            <tr><td><b>Payhip</b></td><td>Not used for this store</td><td>Right for digital downloads; it cannot fulfill physical merch</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="notebox" style="margin-top:16px">
+          <b>The key difference:</b> a download store needs a link out because Payhip <i>is</i> the delivery truck for a PDF. For a shirt, mug, or flag, Printify is the printer and the delivery truck, and it plugs in behind this site's own checkout. The whole purchase stays on-site, and Printify does its work where the customer never has to think about it.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 class="title">Common questions</h2></div></div>
+      <div class="faq">
+        <details><summary>Do I ever leave this website to pay?</summary><p>No. You browse, add to cart, and check out all on 610 Supply Co.'s site. That is the difference from a digital-download store, where the button sends you elsewhere to pay and download a file.</p></details>
+        <details><summary>Is there a shopping cart on this site?</summary><p>Yes. Tap Add to cart on any product and the cart drawer slides in on this page. You can change quantities, remove items, and check out from there, still without leaving the site.</p></details>
+        <details><summary>When is my shirt made, and who makes it?</summary><p>After you pay at checkout here, your order flows automatically to Printify. Printify prints the item for that order, then ships it to you. Nothing sits in inventory beforehand; that is the print-on-demand, no-stock model.</p></details>
+        <details><summary>Why not use Payhip here?</summary><p>Because Payhip delivers digital files, and a T-shirt is not a file. It cannot print or ship physical merch. For physical products, the checkout has to connect to a print partner, and here that partner is Printify, working behind the scenes.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div><b style="color:var(--ink)">610 SUPPLY CO. — CONCEPT PREVIEW</b><br>Prepared for the founding partners' review. Sample products and prices are for preview only; checkout is a demo, no real orders or payments.</div>
+    <div>The on-site flow:<br>Browse here → Add to cart here → Pay here → Printify prints &amp; ships.</div>
+  </div>
+</footer>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="overlay" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <div class="sheet">
+    <div class="sheet-head"><b id="detailTitle">Product</b><button class="x" type="button" data-close aria-label="Close">✕</button></div>
+    <div class="sheet-body" id="detailBody"></div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true" inert>
+  <div class="cart-head"><b>Your cart</b><button class="x" type="button" id="cartCloseBtn" aria-label="Close cart">✕</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="totals">
+      <div><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div><span>Shipping</span><span>Calculated at checkout</span></div>
+    </div>
+    <p class="micro" style="text-align:left">Printed to order by Printify after checkout. You will not leave this site to pay.</p>
+    <button class="btn btn-primary" type="button" id="checkoutBtn">Checkout →</button>
+    <button class="btn btn-ghost" type="button" id="continueBtn" style="width:100%;justify-content:center;margin-top:9px">Continue shopping</button>
+  </div>
+</aside>
+
+<!-- CHECKOUT MODAL (ON THIS SITE) -->
+<div class="overlay" id="checkoutOverlay" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+  <div class="sheet" style="max-width:560px">
+    <div class="sheet-head"><b id="checkoutTitle">Checkout</b><span class="demo-tag">Demo — on this site</span><button class="x" type="button" data-close aria-label="Close">✕</button></div>
+    <div class="sheet-body">
+      <div id="checkoutForm">
+        <p style="margin:0 0 14px;color:var(--muted);font-size:14.5px">You are still on 610 Supply Co. — this checkout form is part of this website. Demo only: no real payment is taken and no real order is placed.</p>
+        <div class="sum-list" id="checkoutItems"></div>
+        <div class="field"><label for="coName">Full name</label><input id="coName" value="Delco Shopper" autocomplete="off"></div>
+        <div class="field"><label for="coEmail">Email address (for receipt &amp; tracking)</label><input id="coEmail" type="email" value="shopper@example.com" autocomplete="off"></div>
+        <div class="field"><label for="coAddress">Shipping address</label><input id="coAddress" value="123 Baltimore Pike, Media, PA" autocomplete="off"></div>
+        <div class="row2">
+          <div class="field"><label for="coCity">City</label><input id="coCity" value="Media" autocomplete="off"></div>
+          <div class="field"><label for="coZip">ZIP</label><input id="coZip" value="19063" autocomplete="off"></div>
+        </div>
+        <div class="field"><label for="coCard">Card number</label><input id="coCard" inputmode="numeric" value="4242 4242 4242 4242" autocomplete="off"></div>
+        <div class="row2">
+          <div class="field"><label for="coExp">Expiry</label><input id="coExp" value="12 / 28" autocomplete="off"></div>
+          <div class="field"><label for="coCvc">CVC</label><input id="coCvc" value="123" autocomplete="off"></div>
+        </div>
+        <div class="totals">
+          <div><span>Subtotal</span><span id="coSub">$0.00</span></div>
+          <div><span>Shipping (via Printify partner)</span><span id="coShip">$4.95</span></div>
+          <div class="grand"><span>Total</span><span id="coTotal">$0.00</span></div>
+        </div>
+        <button class="btn btn-gold" type="button" id="payNowBtn" style="width:100%;justify-content:center;margin-top:16px;padding:15px">Pay now (demo)</button>
+        <p class="micro">Demo checkout on this site only. In the live store, payment is processed securely at this same checkout step, without sending the customer to another store's site.</p>
+      </div>
+      <div class="success" id="checkoutSuccess">
+        <div class="check">✓</div>
+        <h3 style="margin:0 0 6px;font-size:22px">Order confirmed (demo)</h3>
+        <p style="color:var(--muted);margin:0">Thanks! A receipt would be emailed to you, and from here everything happens automatically, with no extra steps for you or the customer:</p>
+        <div class="timeline">
+          <div><span>1.</span><span><b>Paid here, on this site</b> — the customer checked out without ever leaving 610 Supply Co.</span></div>
+          <div><span>2.</span><span><b>Sent automatically to Printify</b> — the design, size, color, quantity, and shipping address flow straight to the print partner.</span></div>
+          <div><span>3.</span><span><b>Printed &amp; shipped by Printify</b> — Printify makes the item and mails it to the customer, who gets tracking by email.</span></div>
+          <div><span>4.</span><span><b>You keep the margin</b> — Printify charges the store its base cost for making and shipping the item. The store keeps the difference between that cost and the price the customer paid. No inventory, no boxes in the garage.</span></div>
+        </div>
+        <button class="btn btn-primary" type="button" data-close style="margin-top:20px">← Back to the mock store</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+var PRODUCTS = [
+  { id:"wooder-tee", name:"“Wooder” Classic Tee", cat:"tees", catLabel:"Tees & Hoodies", price:28, was:34, bg:"#dcefe2", ink:"#0b3d2e", design:"WOODER", sub:"Delco for: water", desc:"The word that gives us away anywhere in America. Soft tee, design printed on the front, brand on the inside neck label.", badge:"Best seller", sizes:["S","M","L","XL","2XL"], colors:[["Forest","#0b3d2e"],["Black","#171717"],["White","#f4f4f0"]], type:"tee" },
+  { id:"610-hoodie", name:"610 Zip-Up Hoodie", cat:"tees", catLabel:"Tees & Hoodies", price:44, was:null, bg:"#e8e3d5", ink:"#2b2110", design:"610", sub:"Delaware County, PA", desc:"The area code, big and unapologetic. For game days, Wawa runs, and every trip back home.", badge:"New", sizes:["S","M","L","XL","2XL"], colors:[["Sand","#d8cdb2"],["Forest","#0b3d2e"],["Charcoal","#3a3a3a"]], type:"hoodie" },
+  { id:"jawn-mug", name:"“It's a Jawn” Mug", cat:"drinkware", catLabel:"Mugs", price:18, was:null, bg:"#fdeeda", ink:"#7a3b06", design:"JAWN.", sub:"noun. any thing.", desc:"A sturdy 11 oz mug for the word that means everything and nothing. Dishwasher and microwave safe.", badge:null, sizes:["11 oz","15 oz"], colors:[["White","#f7f5ef"],["Black","#171717"]], type:"mug" },
+  { id:"delco-stickers", name:"Delco Slang Sticker Pack", cat:"stickers", catLabel:"Stickers", price:9, was:12, bg:"#e3ecfb", ink:"#1d3f7a", design:"5 PACK", sub:"5 Delco favorites", desc:"Five weatherproof vinyl stickers for laptops, coolers, and car windows. The low-price, easy-first-purchase product.", badge:"Under $10", sizes:["Pack of 5"], colors:[["Assorted","#7aa2e0"]], type:"sticker" },
+  { id:"gameday-tee", name:"Game Day in the 610 Tee", cat:"tees", catLabel:"Tees & Hoodies", price:30, was:null, bg:"#f3e2e2", ink:"#6e1f1f", design:"GAME DAY", sub:"in the 610", desc:"For the crew that has been watching together since childhood weekends. Tailgate-tested design, no team logos.", badge:null, sizes:["S","M","L","XL","2XL"], colors:[["White","#f4f4f0"],["Forest","#0b3d2e"],["Black","#171717"]], type:"tee" },
+  { id:"delco-flag", name:"“Delco” House Flag", cat:"home", catLabel:"For the House", price:24, was:null, bg:"#e9f2df", ink:"#365314", design:"DELCO", sub:"Delaware County, PA", desc:"Double-sided garden and house flag for the porch. The product neighbors ask about — free advertising in the driveway.", badge:null, sizes:["Garden 12×18","House 28×40"], colors:[["Green","#2f5d3a"]], type:"flag" }
+];
+function money(n){ return "$" + n.toFixed(2); }
+function fitText(text, base, maxW, factor){
+  var fs = Math.min(base, (maxW * 1.22) / (text.length * factor));
+  var tl = (text.length * fs * factor > maxW) ? ' textLength="' + maxW + '" lengthAdjust="spacingAndGlyphs"' : '';
+  return { fs: fs.toFixed(1), tl: tl };
+}
+function visualSVG(p){
+  var conf = {
+    tee:    { y:[90,108], max:54 },
+    hoodie: { y:[84,102], max:52 },
+    mug:    { y:[90,108], max:70 },
+    sticker:{ y:[90,108], max:94 },
+    flag:   { y:[60,78],  max:102 }
+  }[p.type] || { y:[90,108], max:54 };
+  var d = fitText(p.design, p.design.length > 5 ? 20 : 24, conf.max, 0.47);
+  var s = fitText(p.sub, 10, conf.max, 0.48);
+  var label = '<text x="100" y="' + conf.y[0] + '" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="' + d.fs + '" fill="' + p.ink + '" letter-spacing="0.5"' + d.tl + '>' + p.design + '</text><text x="100" y="' + conf.y[1] + '" text-anchor="middle" font-family="Barlow, sans-serif" font-size="' + s.fs + '" fill="' + p.ink + '" opacity="0.75"' + s.tl + '>' + p.sub + '</text>';
+  if(p.type==="mug"){ return '<svg viewBox="0 0 200 150" role="img" aria-label="Mug mockup"><rect x="52" y="38" width="88" height="76" rx="10" fill="#ffffff" stroke="rgba(0,0,0,.14)"/><path d="M140 58 q28 10 0 36" fill="none" stroke="rgba(0,0,0,.2)" stroke-width="9"/>' + label + '</svg>'; }
+  if(p.type==="sticker"){ return '<svg viewBox="0 0 200 150" role="img" aria-label="Sticker pack mockup"><g transform="rotate(-8 100 75)"><rect x="42" y="34" width="116" height="82" rx="16" fill="#ffffff" stroke="rgba(0,0,0,.12)"/></g>' + label + '</svg>'; }
+  if(p.type==="flag"){ return '<svg viewBox="0 0 200 150" role="img" aria-label="House flag mockup"><rect x="34" y="18" width="5" height="118" fill="rgba(0,0,0,.3)"/><rect x="39" y="22" width="122" height="84" rx="4" fill="#ffffff" stroke="rgba(0,0,0,.1)"/>' + label + '</svg>'; }
+  if(p.type==="hoodie"){ return '<svg viewBox="0 0 200 150" role="img" aria-label="Hoodie mockup"><path d="M70 30 q30 -18 60 0 l22 22 -14 14 -8 -6 v62 a8 8 0 0 1 -8 8 h-44 a8 8 0 0 1 -8 -8 v-62 l-8 6 -14 -14 z" fill="#ffffff" stroke="rgba(0,0,0,.13)"/><rect x="82" y="108" width="36" height="16" rx="4" fill="none" stroke="rgba(0,0,0,.15)"/>' + label + '</svg>'; }
+  return '<svg viewBox="0 0 200 150" role="img" aria-label="T-shirt mockup"><path d="M68 26 q32 16 64 0 l26 18 -13 20 -11 -7 v59 a8 8 0 0 1 -8 8 h-52 a8 8 0 0 1 -8 -8 v-59 l-11 7 -13 -20 z" fill="#ffffff" stroke="rgba(0,0,0,.13)"/>' + label + '</svg>';
+}
+var grid = document.getElementById('productGrid');
+function render(filter){
+  grid.innerHTML = "";
+  PRODUCTS.filter(function(p){ return filter==="all" || p.cat===filter; }).forEach(function(p){
+    var card = document.createElement('article');
+    card.className = "card";
+    card.innerHTML =
+      '<div class="visual" style="background:'+p.bg+'">' + (p.badge?'<span class="badge">'+p.badge+'</span>':'') + visualSVG(p) + '</div>' +
+      '<div class="card-body">' +
+        '<div class="cat">'+p.catLabel+'</div>' +
+        '<h3>'+p.name+'</h3>' +
+        '<p class="desc">'+p.desc+'</p>' +
+        '<div class="price-row"><span class="price">'+money(p.price)+'</span>' + (p.was?'<span class="was">'+money(p.was)+'</span>':'') + '</div>' +
+        '<div class="ship">Printed to order by Printify • No inventory</div>' +
+        '<div class="card-actions">' +
+          '<button class="btn btn-ghost btn-sm" type="button" data-view="'+p.id+'">View details</button>' +
+          '<button class="btn btn-cart btn-sm" type="button" data-add="'+p.id+'">Add to cart</button>' +
+        '</div>' +
+        '<div class="fulfill-note"><b>Stays on this site:</b> adds to the cart here, and checkout happens here too.</div>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+render("all");
+document.querySelectorAll('.chip').forEach(function(chip){
+  chip.addEventListener('click', function(){
+    document.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+    chip.setAttribute('aria-pressed','true');
+    render(chip.getAttribute('data-filter'));
+    bindCardButtons();
+  });
+});
+/* Cart state */
+var cart = [];
+var cartDrawer = document.getElementById('cartDrawer');
+var cartBackdrop = document.getElementById('cartBackdrop');
+function cartQty(){ return cart.reduce(function(s,i){ return s+i.qty; },0); }
+function cartSubtotal(){ return cart.reduce(function(s,i){ return s+i.price*i.qty; },0); }
+function openCart(){ renderCart(); cartDrawer.classList.add('open'); cartDrawer.removeAttribute('aria-hidden'); cartDrawer.removeAttribute('inert'); cartBackdrop.classList.add('open'); document.body.style.overflow="hidden"; }
+function closeCart(){ cartDrawer.classList.remove('open'); cartDrawer.setAttribute('aria-hidden','true'); cartDrawer.setAttribute('inert',''); cartBackdrop.classList.remove('open'); if(!document.querySelector('.overlay.open')) document.body.style.overflow=""; }
+function addToCart(p, size, color, openAfter){
+  size = size || p.sizes[Math.min(1,p.sizes.length-1)]; color = color || p.colors[0][0];
+  var found = null;
+  for(var i=0;i<cart.length;i++){ if(cart[i].id===p.id && cart[i].size===size && cart[i].color===color){ found=cart[i]; break; } }
+  if(found){ found.qty++; } else { cart.push({id:p.id, name:p.name, price:p.price, bg:p.bg, ink:p.ink, design:p.design, size:size, color:color, qty:1}); }
+  updateCartBadge(); renderCart();
+  showToast("Added to cart: " + p.name + " (" + size + " · " + color + ")");
+  if(openAfter !== false) openCart();
+}
+function updateCartBadge(){ document.getElementById('cartCount').textContent = cartQty(); }
+function renderCart(){
+  var wrap = document.getElementById('cartItems');
+  var foot = document.getElementById('cartFoot');
+  if(!cart.length){
+    wrap.innerHTML = '<div class="cart-empty"><b>Your cart is empty</b>Add a tee, mug, sticker pack, or flag and it will show up here, on this site.<br><br><a class="btn btn-primary" href="#shop" id="emptyShopLink">Shop the collection</a></div>';
+    foot.style.display="none";
+    var link = document.getElementById('emptyShopLink'); if(link) link.addEventListener('click', closeCart);
+    updateCartBadge(); return;
+  }
+  foot.style.display="";
+  wrap.innerHTML = "";
+  cart.forEach(function(item, idx){
+    var row = document.createElement('div'); row.className="cart-item";
+    row.innerHTML = '<div class="thumb" style="background:'+item.bg+';color:'+item.ink+'">'+item.design+'</div>' +
+      '<div><b>'+item.name+'</b><span class="variant">'+item.size+' · '+item.color+'</span>' +
+      '<div class="qty-row"><button class="qty-btn" type="button" data-dec="'+idx+'" aria-label="Decrease quantity">−</button><span class="qty-num">'+item.qty+'</span><button class="qty-btn" type="button" data-inc="'+idx+'" aria-label="Increase quantity">+</button><button class="remove-btn" type="button" data-remove="'+idx+'">Remove</button></div></div>' +
+      '<span class="line-price">'+money(item.price*item.qty)+'</span>';
+    wrap.appendChild(row);
+  });
+  document.getElementById('cartSubtotal').textContent = money(cartSubtotal());
+  wrap.querySelectorAll('[data-inc]').forEach(function(b){ b.onclick=function(){ cart[+b.getAttribute('data-inc')].qty++; updateCartBadge(); renderCart(); }; });
+  wrap.querySelectorAll('[data-dec]').forEach(function(b){ b.onclick=function(){ var i=+b.getAttribute('data-dec'); cart[i].qty--; if(cart[i].qty<1) cart.splice(i,1); updateCartBadge(); renderCart(); }; });
+  wrap.querySelectorAll('[data-remove]').forEach(function(b){ b.onclick=function(){ cart.splice(+b.getAttribute('data-remove'),1); updateCartBadge(); renderCart(); }; });
+  updateCartBadge();
+}
+document.getElementById('cartOpenBtn').addEventListener('click', openCart);
+document.getElementById('heroCartBtn').addEventListener('click', openCart);
+document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+document.getElementById('continueBtn').addEventListener('click', closeCart);
+cartBackdrop.addEventListener('click', closeCart);
+/* Detail modal */
+var current = null, selSize = null, selColor = null;
+var detailOverlay = document.getElementById('detailOverlay');
+var checkoutOverlay = document.getElementById('checkoutOverlay');
+function openDetail(id){
+  current = PRODUCTS.find(function(p){ return p.id===id; });
+  if(!current) return;
+  selSize = current.sizes[Math.min(1, current.sizes.length-1)];
+  selColor = current.colors[0][0];
+  document.getElementById('detailTitle').textContent = current.name;
+  var body = document.getElementById('detailBody');
+  body.innerHTML =
+    '<div class="detail-visual" style="background:'+current.bg+'">' + visualSVG(current) + '</div>' +
+    '<div class="cat">'+current.catLabel+'</div>' +
+    '<p style="color:var(--muted);margin:8px 0 0">'+current.desc+'</p>' +
+    '<div class="opt-label">Size / option</div><div class="opt-row">' +
+      current.sizes.map(function(s){ return '<button class="opt" type="button" data-size="'+s+'" aria-pressed="'+(s===selSize)+'">'+s+'</button>'; }).join('') + '</div>' +
+    '<div class="opt-label">Color</div><div class="opt-row">' +
+      current.colors.map(function(c){ return '<button class="swatch" type="button" data-color="'+c[0]+'" aria-pressed="'+(c[0]===selColor)+'" title="'+c[0]+'" aria-label="Color '+c[0]+'"><i style="background:'+c[1]+'"></i></button>'; }).join('') +
+      '<span id="colorName" style="align-self:center;font-weight:600;font-size:14px">'+selColor+'</span></div>' +
+    '<div class="buybox"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap"><span class="price">'+money(current.price)+'</span><span style="color:var(--muted);font-size:13.5px">+ shipping at checkout</span></div>' +
+    '<button class="btn btn-cart" type="button" id="detailAdd">Add to cart</button>' +
+    '<p class="micro">Adds this exact size and color to the cart on this site.<br>Selected: <span id="selSummary"></span> • Fulfilled by Printify after checkout</p></div>';
+  function syncSel(){
+    var ss = document.getElementById('selSummary'); if(ss) ss.textContent = selSize + " · " + selColor;
+    body.querySelectorAll('[data-size]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-size')===selSize ? 'true':'false'); });
+    body.querySelectorAll('[data-color]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-color')===selColor ? 'true':'false'); });
+    var cn = document.getElementById('colorName'); if(cn) cn.textContent = selColor;
+  }
+  syncSel();
+  body.querySelectorAll('[data-size]').forEach(function(b){ b.addEventListener('click', function(){ selSize = b.getAttribute('data-size'); syncSel(); }); });
+  body.querySelectorAll('[data-color]').forEach(function(b){ b.addEventListener('click', function(){ selColor = b.getAttribute('data-color'); syncSel(); }); });
+  document.getElementById('detailAdd').addEventListener('click', function(){ closeOverlay(detailOverlay); addToCart(current, selSize, selColor, true); });
+  detailOverlay.classList.add('open');
+  document.body.style.overflow = "hidden";
+}
+/* Checkout (on this site) */
+function openCheckout(){
+  if(!cart.length){ showToast("Your cart is empty — add something first."); return; }
+  closeCart();
+  document.getElementById('checkoutForm').classList.remove('hidden');
+  document.getElementById('checkoutSuccess').classList.remove('show');
+  var list = document.getElementById('checkoutItems'); list.innerHTML="";
+  cart.forEach(function(item){
+    var row = document.createElement('div'); row.className="sum";
+    row.innerHTML = '<div class="sum-thumb" style="background:'+item.bg+';color:'+item.ink+'">'+item.design+'</div><div style="flex:1;min-width:0"><b style="display:block;line-height:1.25">'+item.name+'</b><span style="color:var(--muted);font-size:13.5px">'+item.size+' · '+item.color+' · Qty '+item.qty+'</span></div><b>'+money(item.price*item.qty)+'</b>';
+    list.appendChild(row);
+  });
+  var sub = cartSubtotal(); var ship = 4.95;
+  document.getElementById('coSub').textContent = money(sub);
+  document.getElementById('coShip').textContent = money(ship);
+  document.getElementById('coTotal').textContent = money(sub+ship);
+  checkoutOverlay.classList.add('open');
+  document.body.style.overflow="hidden";
+}
+document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
+document.getElementById('payNowBtn').addEventListener('click', function(){
+  document.getElementById('checkoutForm').classList.add('hidden');
+  document.getElementById('checkoutSuccess').classList.add('show');
+  cart = []; updateCartBadge(); renderCart();
+  var body = checkoutOverlay.querySelector('.sheet'); if(body) body.scrollTop = 0;
+});
+function closeOverlay(el){ el.classList.remove('open'); if(!cartDrawer.classList.contains('open')) document.body.style.overflow=""; }
+document.querySelectorAll('[data-close]').forEach(function(b){
+  b.addEventListener('click', function(){ var ov = b.closest('.overlay'); if(ov) closeOverlay(ov); });
+});
+[detailOverlay, checkoutOverlay].forEach(function(ov){
+  ov.addEventListener('click', function(e){ if(e.target===ov) closeOverlay(ov); });
+});
+document.addEventListener('keydown', function(e){ if(e.key==="Escape"){ closeOverlay(detailOverlay); closeOverlay(checkoutOverlay); closeCart(); } });
+var toastTimer;
+function showToast(msg){
+  var t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 3400);
+}
+function bindCardButtons(){
+  document.querySelectorAll('[data-view]').forEach(function(b){ b.onclick = function(){ openDetail(b.getAttribute('data-view')); }; });
+  document.querySelectorAll('[data-add]').forEach(function(b){ b.onclick = function(){
+    var p = PRODUCTS.find(function(x){ return x.id===b.getAttribute('data-add'); });
+    addToCart(p);
+  };});
+}
+bindCardButtons();
+document.querySelectorAll('[data-demo-add]').forEach(function(b){
+  b.addEventListener('click', function(){
+    var p = PRODUCTS.find(function(x){ return x.id===b.getAttribute('data-demo-add'); });
+    addToCart(p, "L", p.colors[0][0], true);
+  });
+});
+renderCart();
+</script>
+</body>
+</html>
